@@ -10,6 +10,7 @@ import { getPersonFromSessionStorage, setItemByIdToSessionStorage } from "../../
 import ItemCell from "../itemCell/ItemCell";
 
 import "./item.scss";
+import { validateInput } from "../../validation/validationInput";
 
 const Item: React.FC<IItem> = (props) => {
   const { id, name, age, about, mapPersonsForStorage } = props;
@@ -23,6 +24,7 @@ const Item: React.FC<IItem> = (props) => {
     about,
   });
   const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [isValid, setIsValid] = useState<boolean>(true);
 
   useEffect(() => {
     console.log("render Item");
@@ -51,9 +53,20 @@ const Item: React.FC<IItem> = (props) => {
       .map((keyName) => personData[keyName as keyof IPerson] === props[keyName as keyof IItem])
       .every((el) => el === true);
 
-    if (!isIdentObjects) {
-      dispatch(updatePerson(personData));
+    if (isIdentObjects) {
+      setItemByIdToSessionStorage(id, {
+        ...personData,
+        isEditing: false,
+      });
+      setIsEditing(false);
+      return;
     }
+    if (!isValid) {
+      alert("not valid Person data");
+      return;
+    }
+
+    dispatch(updatePerson(personData));
     setItemByIdToSessionStorage(id, {
       ...personData,
       isEditing: false,
@@ -73,17 +86,21 @@ const Item: React.FC<IItem> = (props) => {
     dispatch(deletePerson(id));
   };
 
-  const changePersonData = useCallback((name: string, value: string) => {
-    setPersonData({
-      ...personData,
-      [name]: value,
-    });
-    setItemByIdToSessionStorage(id, {
-      ...personData,
-      [name]: value,
-      isEditing: true,
-    });
-  }, []);
+  const changePersonData = useCallback(
+    (name: "name" | "age" | "about", value: string, isValidInput: boolean) => {
+      setPersonData({
+        ...personData,
+        [name]: value,
+      });
+      setItemByIdToSessionStorage(id, {
+        ...personData,
+        [name]: value,
+        isEditing: true,
+      });
+      setIsValid(isValidInput);
+    },
+    []
+  );
 
   return (
     <tr className='item'>
