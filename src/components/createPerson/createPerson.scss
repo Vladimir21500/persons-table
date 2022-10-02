@@ -55,7 +55,7 @@
       outline: none;
       &:focus {
         background-color: rgb(237, 236, 236);
-        border: 3px solid $main-color;
+        border: 4px solid $main-color;
       }
     }
 
@@ -79,6 +79,7 @@
       }
       &:disabled {
         opacity: 0.7;
+        cursor: auto;
         &:active {
           background-color: $main-color;
         }
@@ -87,5 +88,5 @@
   }
 }
 .error {
-  color: #cb3d40;
+  color: #ff393d;
 }

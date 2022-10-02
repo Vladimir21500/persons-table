@@ -10,10 +10,10 @@ import { getPersonFromSessionStorage, setItemByIdToSessionStorage } from "../../
 import ItemCell from "../itemCell/ItemCell";
 
 import "./item.scss";
-import { validateInput } from "../../validation/validationInput";
 
 const Item: React.FC<IItem> = (props) => {
   const { id, name, age, about, mapPersonsForStorage } = props;
+
   const dispatch = useAppDispatch();
   const { persons } = useAppSelector((state) => state.persons);
 
@@ -25,10 +25,6 @@ const Item: React.FC<IItem> = (props) => {
   });
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [isValid, setIsValid] = useState<boolean>(true);
-
-  useEffect(() => {
-    console.log("render Item");
-  }, []);
 
   useEffect(() => {
     const personsItems = mapPersonsForStorage();

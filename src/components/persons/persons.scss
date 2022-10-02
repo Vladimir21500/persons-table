@@ -46,7 +46,7 @@
           border: none;
         }
       }
-      background-color: rgb(198, 184, 255);
+      background-color: #c6b8ff;
       & tr:nth-child(odd) {
         background-color: $main-color;
         color: $font-color-white;
@@ -58,7 +58,6 @@
     }
     thead th {
       color: $font-color-white;
-
       border: none;
     }
 
@@ -82,6 +81,9 @@
       &:nth-child(4) {
         width: 40%;
       }
+      &:last-child {
+        text-align: start;
+      }
     }
 
     th {
@@ -90,6 +92,46 @@
       &:last-child {
         border: none;
         background-color: $background-color;
+      }
+    }
+  }
+  &__page {
+    line-height: 40px;
+    font-size: 30px;
+    font-weight: 700;
+  }
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    color: $font-color-white;
+
+    & button {
+      padding: 0;
+      margin: 0;
+      height: 40px;
+      width: 40px;
+      font-size: 36px;
+      color: $font-color-white;
+      background-color: $main-color;
+      border-radius: 20px;
+      border: none;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: #c6b8ff;
+        color: $main-color;
+      }
+      &:active {
+        background-color: #ffffffb0;
+      }
+      &:disabled {
+        cursor: auto;
+        opacity: 0.5;
+        &:hover {
+          background-color: $main-color;
+          color: $font-color-white;
+        }
       }
     }
   }
