@@ -5,8 +5,30 @@
   padding: 50px 50px;
 
   &__title {
+    margin: 0;
     text-align: center;
     color: $font-color-white;
+  }
+
+  &__sort {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px;
+    & span {
+      line-height: 40px;
+      font-size: 24px;
+      margin-right: 10px;
+      color: $font-color-white;
+    }
+    & select {
+      height: 40px;
+      width: 120px;
+      font-size: 20px;
+      text-overflow: ellipsis;
+      color: $font-color-dark-grey;
+      border: 3px solid $main-color;
+      outline: none;
+    }
   }
 
   &__add-btn {
@@ -46,7 +68,7 @@
           border: none;
         }
       }
-      background-color: #c6b8ff;
+      background-color: $second-color;
       & tr:nth-child(odd) {
         background-color: $main-color;
         color: $font-color-white;
@@ -119,7 +141,7 @@
       transition: all 0.3s;
 
       &:hover {
-        background-color: #c6b8ff;
+        background-color: $second-color;
         color: $main-color;
       }
       &:active {
