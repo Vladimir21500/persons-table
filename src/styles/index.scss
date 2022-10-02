@@ -1,0 +1,14 @@
+@import "./variables.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Nunito", sans-serif;
+  background-color: $background-color;
+}
+
+button {
+  cursor: pointer;
+}

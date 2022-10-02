@@ -1,0 +1,91 @@
+@import "../../styles/index.scss";
+
+.person-form {
+  width: 100%;
+  transition: all 0.5s;
+
+  &__id {
+    display: inline-block;
+    height: 50px;
+    width: 15%;
+    color: $font-color-white;
+    line-height: 50px;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  &__label {
+    left: 16px;
+    z-index: 1;
+    position: absolute;
+    bottom: 46px;
+    padding: 5px;
+    font-size: 18px;
+    line-height: 14px;
+    font-weight: 500;
+    color: $font-color-white;
+  }
+
+  &__hidden {
+    display: none;
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+
+    div {
+      position: relative;
+      &:nth-child(2) {
+        width: 20%;
+      }
+
+      &:nth-child(3) {
+        width: 15%;
+      }
+
+      &:nth-child(4) {
+        width: 40%;
+      }
+    }
+    input {
+      height: 50px;
+      width: 100%;
+      font-size: 20px;
+      outline: none;
+      &:focus {
+        background-color: rgb(237, 236, 236);
+        border: 3px solid $main-color;
+      }
+    }
+
+    button {
+      height: 30px;
+      width: 30px;
+      font-size: 30px;
+      line-height: 30px;
+      padding: 0;
+      color: $font-color-white;
+      background-color: inherit;
+      border-radius: 15px;
+      border: none;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: $main-color;
+      }
+      &:active {
+        background-color: #e7e7e7b0;
+      }
+      &:disabled {
+        opacity: 0.7;
+        &:active {
+          background-color: $main-color;
+        }
+      }
+    }
+  }
+}
+.error {
+  color: #cb3d40;
+}

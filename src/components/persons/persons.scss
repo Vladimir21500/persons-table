@@ -1,0 +1,96 @@
+@import "../../styles/index.scss";
+
+.persons {
+  height: 100vh;
+  padding: 50px 50px;
+
+  &__title {
+    text-align: center;
+    color: $font-color-white;
+  }
+
+  &__add-btn {
+    font-weight: 700;
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0;
+    color: $font-color-white;
+    text-align: center;
+    background-color: inherit;
+    border-radius: 15px;
+    border: none;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: $main-color;
+    }
+    &:active {
+      background-color: #e7e7e7b0;
+    }
+  }
+
+  &__table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+
+    & tbody {
+      & tr {
+        transition: all 0.5s;
+        &:hover {
+          opacity: 0.8;
+        }
+        &:last-child {
+          border: none;
+        }
+      }
+      background-color: rgb(198, 184, 255);
+      & tr:nth-child(odd) {
+        background-color: $main-color;
+        color: $font-color-white;
+        font-weight: 400;
+      }
+      & tr:nth-child(even) {
+        color: $font-color-dark-grey;
+      }
+    }
+    thead th {
+      color: $font-color-white;
+
+      border: none;
+    }
+
+    th {
+      font-size: 22px;
+      padding: none;
+      border: none;
+
+      &:nth-child(1) {
+        width: 15%;
+      }
+
+      &:nth-child(2) {
+        width: 20%;
+      }
+
+      &:nth-child(3) {
+        width: 15%;
+      }
+
+      &:nth-child(4) {
+        width: 40%;
+      }
+    }
+
+    th {
+      font-size: 20px;
+      border: 1px solid $font-color-dark-grey;
+      &:last-child {
+        border: none;
+        background-color: $background-color;
+      }
+    }
+  }
+}

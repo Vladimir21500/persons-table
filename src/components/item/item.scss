@@ -1,0 +1,41 @@
+@import "../../styles/index.scss";
+
+.item {
+  height: 50px;
+
+  &__th-input {
+    padding: 0 5px;
+
+    & input {
+      text-align: center;
+      font-size: 20px;
+      height: 40px;
+      width: 100%;
+    }
+  }
+
+  &__buttons {
+    padding-left: 10px;
+    margin: auto;
+    line-height: 50px;
+
+    & button {
+      height: 30px;
+      width: 30px;
+      font-size: 20px;
+      color: $font-color-white;
+      background-color: inherit;
+      border-radius: 15px;
+      border: none;
+      transition: all 0.3s;
+
+      &:hover {
+        color: $font-color-dark-grey;
+        background-color: $main-color;
+      }
+      &:active {
+        background-color: #e7e7e7b0;
+      }
+    }
+  }
+}
