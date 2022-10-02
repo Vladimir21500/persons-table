@@ -11,8 +11,10 @@ interface IItemCell {
 const ItemCell: React.FC<IItemCell> = ({ isEditing, name, value, changePersonData }) => {
   const type = name === "age" ? "number" : "text";
   const [className, setClassName] = useState<"" | "invalid">("");
+
   const changeHandler = (event: any) => {
     const { name, value } = event.target;
+
     const isValidInput = validateInput(name, value);
     changePersonData(name, value, isValidInput);
     setClassName(isValidInput ? "" : "invalid");
