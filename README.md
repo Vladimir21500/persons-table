@@ -2,8 +2,9 @@
 
 ## [Site link](https://vladimir21500.github.io/persons-table/)
 
-This site render table with persons from test Api.
+This is table with persons from test Api with sorting and pagination.
 You can delete/add/update person, also results saves, when you reload page.
+
 
 ### [Test API](https://mockapi.io/)
 
