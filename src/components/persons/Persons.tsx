@@ -17,7 +17,7 @@ const Persons: React.FC<{}> = () => {
   const [isShowForm, setIsShowForm] = useState<boolean>(false);
   const [sortType, setSortType] = useState<SortType>("early");
 
-  const perPage = 12;
+  const perPage = 10;
 
   const mapPersonsForStorage = useCallback(() => {
     return persons.map((person: IPerson) => ({
