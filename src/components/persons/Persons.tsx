@@ -11,11 +11,11 @@ import "./persons.scss";
 
 const Persons: React.FC<{}> = () => {
   const dispatch = useAppDispatch();
-  const persons = useAppSelector((state) => state.persons.persons.reverse());
+  const persons = useAppSelector((state) => state.persons.persons);
 
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [isShowForm, setIsShowForm] = useState<boolean>(false);
-  const [sortType, setSortType] = useState<SortType>("recent");
+  const [sortType, setSortType] = useState<SortType>("early");
 
   const perPage = 12;
 
@@ -36,7 +36,8 @@ const Persons: React.FC<{}> = () => {
 
   const sortTypeToSessionStorage = () => {
     if (sessionStorage.getItem("sortType") === null) {
-      sessionStorage.setItem("sortType", "recent");
+      debugger;
+      sessionStorage.setItem("sortType", "early");
     } else {
       setSortType(sessionStorage.getItem("sortType") as SortType);
     }
@@ -80,6 +81,7 @@ const Persons: React.FC<{}> = () => {
         <span>Sort by</span>
         <select onChange={changeTypeSortHandler} name='sort' value={sortType}>
           <option value='recent'>recently added</option>
+          <option value='early'>early</option>
           <option value='older'>older</option>
           <option value='yanger'>yanger</option>
           <option value='name'>name</option>

@@ -14,14 +14,14 @@ const persons = (state = initialState, action: ActionType) => {
   switch (action.type) {
     case SORT_PERSONS:
       if (action.payload === "older") {
-        const sortedPersons = state.persons.slice().sort((a: IPerson, b: IPerson) => a.age - b.age);
+        const sortedPersons = state.persons.slice().sort((a: IPerson, b: IPerson) => b.age - a.age);
         return {
           ...state,
           persons: sortedPersons,
         };
       }
       if (action.payload === "yanger") {
-        const sortedPersons = state.persons.slice().sort((a: IPerson, b: IPerson) => b.age - a.age);
+        const sortedPersons = state.persons.slice().sort((a: IPerson, b: IPerson) => a.age - b.age);
         return {
           ...state,
           persons: sortedPersons,
@@ -30,7 +30,16 @@ const persons = (state = initialState, action: ActionType) => {
       if (action.payload === "name") {
         const sortedPersons = state.persons
           .slice()
-          .sort((a: IPerson, b: IPerson) => (a.name.toLowerCase() > b.name.toLowerCase() ? -1 : 1));
+          .sort((a: IPerson, b: IPerson) => (b.name.toLowerCase() > a.name.toLowerCase() ? -1 : 1));
+        return {
+          ...state,
+          persons: sortedPersons,
+        };
+      }
+      if (action.payload === "early") {
+        const sortedPersons = state.persons
+          .slice()
+          .sort((a: IPerson, b: IPerson) => Number(a.id) - Number(b.id));
         return {
           ...state,
           persons: sortedPersons,
@@ -39,7 +48,7 @@ const persons = (state = initialState, action: ActionType) => {
       if (action.payload === "recent") {
         const sortedPersons = state.persons
           .slice()
-          .sort((a: IPerson, b: IPerson) => Number(a.id) - Number(b.id));
+          .sort((a: IPerson, b: IPerson) => Number(b.id) - Number(a.id));
         return {
           ...state,
           persons: sortedPersons,

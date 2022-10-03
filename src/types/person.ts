@@ -13,4 +13,4 @@ export interface IPersonSession {
   isEditing: boolean;
 }
 
-export type SortType = "recent" | "older" | "yanger" | "name";
+export type SortType = "recent" | "older" | "yanger" | "name" | "early";
