@@ -6,11 +6,8 @@ export const setPersonsToSessionStorage = (persons: IPersonSession[]) => {
   sessionStorage.setItem("personsItems", JSON.stringify(persons));
 };
 
-export const getPersonFromSessionStorage = (id: string) => {
-  return getPersonsFromSessionStorage()?.filter((person: IPersonSession) => {
-    return person.id === id;
-  })[0];
-};
+export const getPersonFromSessionStorage = (id: string) =>
+  getPersonsFromSessionStorage()?.filter((person: IPersonSession) => person.id === id)[0];
 
 export const addItemToSessionStorage = (item: IPersonSession) => {
   const persons = getPersonsFromSessionStorage();
